@@ -1,11 +1,12 @@
-$:.unshift File.dirname(__FILE__) # For use/testing when no gem is installed
+$:.unshift File.dirname(__FILE__)
 
 require 'sinatra/base'
 require 'site/modules/githubmodule'
 
-class App < Sinatra::Base
-  register Sinatra::GithubModule
+module Sinatra
+  class App < Sinatra::Application
+    register Sinatra::GithubModule
 
-  # start the server if ruby file executed directly
-  run! if app_file == $0
+    run!
+  end
 end

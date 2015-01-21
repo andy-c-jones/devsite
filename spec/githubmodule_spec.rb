@@ -1,5 +1,8 @@
-require 'airborne'
+#$:.unshift File.dirname(__FILE__)
+$: << File.expand_path(File.join(File.dirname(__FILE__), '..'))
 
+require 'airborne'
+require 'api/app'
 
 Airborne.configure do |config|
   config.rack_app = App
